@@ -1,0 +1,14 @@
+
+    <h5>HISTORIAL:
+
+        <!-- Bucle for en ANGULAR, el cual se recorre creando una variable (let historial, con el nombre que tu queiras)
+           solo es util dentro del parrafo, el cual con el of, 
+           recorrera el array elegido, creado inicialmente por nosotros y que estaba vacio -->
+        <p *ngFor="let historial of arrayHistorialHijo"> 
+          <!--para mostrar los resultados, hacerlo con {{ }} ya que asi, mostramos el TS 
+            y lo que escribamos dentro será parte del parrafo y se mostrará tal cual  
+            con el 0 accedemos a la primera posicion y con el 1 a la segunda posicion del array-->
+        {{ historial[0]}} : {{historial[1] }}   
+  
+        </p>
+    </h5>

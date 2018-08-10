@@ -1,20 +1,66 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bola Magica</title>
+</head>
+<body>
+  
+
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+     ¿ TE ADIVINARÁ EL FUTURO ?
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+    <h3>Preguntame algo</h3>
+  <div> <input class="Preguntando" (keyup)="keyup($event)" [(ngModel)]= "pregunta"> 
+        <!-- Input donde con el "[(ngModel)]" le indicamos que vamos a guardar lo que se escriba en una variable 
+        cuando declaro otro tipo de evento este se pone entre parentesis equivale a keyup donde si declaramos
+          "keyup($event)" indicamos que la funcion que se va a ejecutar se llama "keyup", funcion que está en 
+          TS a la cual le daremos el valor del evento.  -->
+        <button class="buttonClick" (click)="getRandomResponse()">Ver suerte</button>
+        <!-- Boton con '(click)="getRandomResponse()" ' le indicamos que cuando se haga click 
+          se ejecute la funcion de despues del igual. 
+         Funcion que está en el TS  -->
+  </div>
+  
+  <img class="bola" src="assets/bola.png" alt="">
+  <div *ngIf = "selected !== ''" >   
+      <!-- Si unicamente se ponde la función como true, no hace falta igualarla a true  -->
+      {{ selected }}     
+      <!-- Como estas introduciendo algo en JS, tiene que se entre corchetes -->
+  </div>
 
+  <div>
+
+    <app-historial [arrayHistorialHijo]="arrayHistorialRespuestas" ></app-historial>
+    
+
+</div>
+</div>
+
+</body>
+</html>
+<!-- Asi nos posicionamos direcctamente en el html del componente app-home, muestra el home entero-->
+<!-- inyectando directamente el css, de la misma carpeta/componente home -->
+  <!-- <app-home></app-home> 
+  <prueba></prueba>
+
+<span> USUARIO DICE: {{name}}</span>
+<div> <input [(ngModel)]= "name"> </div>
+
+
+
+<span> Contraseña: {{contra}}</span>
+
+<! La propiedad del if crea un string, y como tenemos que comparar dos string, 
+  a aquello a lo que comparamos tiene que estar con comillas simples -->
+<!-- <div *ngIf = " contra === 'abc123'"> </div> -->
+<!-- <div> <input [(ngModel)]= "contra"> </div> -->
+
+<!--El if se crea en la misma componente que hemos creadp, como si fuera una variable en si -->
+<!-- <app-cofre-abierto *ngIf = " contra === 'abc123'"></app-cofre-abierto>  -->
+
+<!-- Hasta que no exista "contra", no muestra la imagen. Por eso hasta que la variebale si inicialice, no se mostrará nada -->
+<!-- <app-cofre-cerrado *ngIf = " contra !== 'abc123' && contra"></app-cofre-cerrado>    -->
